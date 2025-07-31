@@ -1,0 +1,39 @@
+<div class="settings-widget profile-details">
+  <div class="settings-inner-blk p-0">
+      <div class="profile-heading">
+          <h3>Invoices</h3>
+          <p>You can find all of your order Invoices.</p>
+      </div>
+      <div class="comman-space pb-0">
+              <div class="settings-invoice-blk table-responsive">
+
+                  <!-- Invoice info-->
+                  <table class="table table-borderless mb-0">
+                      <thead>
+                        <tr>
+                          <th>idFactureR</th>
+                          <th>dateDebutAbnR</th>
+                          <th>dateFinAbnR</th>
+                          <th>emailUser</th>
+                          <th>statusPaiementR</th>
+                          <th>&nbsp;</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let facture of factures">
+                          <td><a [routerLink]="routes.view_invoice_student" class="invoice-no">{{facture.idFactureR}}</a></td>
+                          <td>{{facture.dateDebutAbnR | date:'yyyy-MM-dd'}}</td>
+                          <td>{{facture.dateFinAbnR | date:'yyyy-MM-dd'}}</td>
+                          <td>{{facture.emailUser}}</td>
+                          <td><span [ngClass]="{'badge': true, 'badge-success': facture.statusPaiementR === true, 'badge-danger': facture.statusPaiementR === false }">{{facture.statusPaiementR}}</span></td>
+                          <td><a [routerLink]="[routes.page_checkout + '/' + facture.idFactureR]" class="btn btn-primary">validate payment</a></td>
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  <!-- /Invoice info-->
+
+              </div>
+      </div>
+  </div>
+</div>

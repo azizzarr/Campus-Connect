@@ -1,0 +1,88 @@
+<!-- Main Wrapper -->
+<div class="main-wrapper log-wrap">
+    <div class="row">
+        <!-- Login Banner -->
+        <div class="col-md-6 login-bg">
+            <div class="row w-100">
+                <div class="col-md-12">
+                    <owl-carousel-o [options]="registerOwlOptions">
+                        <ng-container *ngFor="let slide of register">
+                            <ng-template carouselSlide>
+                                <div class="welcome-login">
+                                    <div class="login-banner">
+                                        <img [src]="slide.img" class="img-fluid" alt="Logo" />
+                                    </div>
+                                    <div class="mentor-course text-center">
+                                        <h2>{{ slide.content1 }}<br />{{ slide.content2 }}</h2>
+                                        <p>{{ slide.paragraph }}</p>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </ng-container>
+                    </owl-carousel-o>
+                </div>
+            </div>
+        </div>
+        <!-- /Login Banner -->
+
+        <div class="col-md-6 login-wrap-bg">
+            <!-- Login -->
+          <div class="login-wrapper">
+            <div class="loginbox">
+              <div class="img-logo">
+                <img src="assets/img/logo.svg" class="img-fluid" alt="Logo" />
+                <div class="back-home">
+                  <a [routerLink]="routes.home3">Back to Home</a>
+                </div>
+              </div>
+              <h1>Sign up</h1>
+              <form (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <input type="text" class="form-control" id="username" [(ngModel)]="user.username" name="username" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" id="email" [(ngModel)]="user.email" name="email" required>
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="{{show ? 'password' : 'text'}}" class="form-control" id="password" [(ngModel)]="user.password" name="password" required>
+                  <button type="button" class="btn btn-link password-toggle" (click)="onClick()">
+                    {{show ? 'Show' : 'Hide'}}
+                  </button>
+                  <div *ngIf="passwordResponce.passwordResponceKey">
+                    <img [src]="passwordResponce.passwordResponceImage">
+                    <span>{{passwordResponce.passwordResponceText}}</span>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="google-bg text-center">
+                    <span><a href="javascript:;">Or sign in with</a></span>
+                    <div class="sign-google">
+                        <ul>
+                            <li>
+                                <a href="javascript:;"><img src="assets/img/net-icon-01.png" class="img-fluid"
+                                        alt="Logo" />
+                                    Sign In using Google</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;"><img src="assets/img/net-icon-02.png" class="img-fluid"
+                                        alt="Logo" />Sign In using Facebook</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <p class="mb-0">
+                        Already have an account? <a [routerLink]="routes.login">Sign in</a>
+                    </p>
+                </div>
+            </div>
+            <!-- /Login -->
+        </div>
+    </div>
+
+<!-- /Main Wrapper -->
