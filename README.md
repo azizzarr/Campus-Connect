@@ -51,7 +51,6 @@ CampusConnect uses **Keycloak** for secure authentication and role-based access 
 ### ✅ Prerequisites
 
 - Java 17+
-- Node.js 18+
 - Angular CLI
 - MySQL
 - Docker (for Keycloak, optional)
